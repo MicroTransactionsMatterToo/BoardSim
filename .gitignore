@@ -1,0 +1,5 @@
+# Python Misc Files
+*/__pycache
+
+# Python Packaging stuff
+*.egg-info
