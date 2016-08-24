@@ -86,7 +86,7 @@ class RISCInstructionSet(InstructionSet):
     OPCODES = {
         0b000: {
             "mnemonic": "add",
-            "format": "RRR"
+            "format": "RRR",
             "result": "rB + rC -> rA"
         },
         0b001: {

@@ -1,5 +1,6 @@
 import unittest
-from boardsim import Register
+from boardsim.core import Register
+from boardsim.core.base import RegisterPermissionError
 
 
 class test_instantiation_of_registers(unittest.TestCase):
@@ -46,4 +47,20 @@ class test_instantiation_of_registers(unittest.TestCase):
     	# ~~~~~ Value Checks ~~~ #
     	self.assertEqual(len(test_register),
     					 2, "Length of Register(2) is not equal to 2")
+
+class test_writing_of_registers(unittest.TestCase):
+	def test_writing_to_default_register(self):
+		test_register = Register(8)
+		# ~~~~ Permission Checks ~~~~ #
+		self.assertEqual(test_register[0], bin(False))
+		test_register[0] = True
+		self.assertEqual(test_register[0], bin(True),
+						 "Writing of index 0 of Register(8) failed")
+
+	def test_writing_to_readonly_register(self):
+		test_register = Register(8, 'ro')
+		# ~~~~ Permission Checks ~~~ #
+		def test_write():
+			test_register[0] = True
+		self.assertRaises(RegisterPermissionError, test_write)
 
