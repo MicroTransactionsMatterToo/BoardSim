@@ -64,3 +64,15 @@ class test_writing_of_registers(unittest.TestCase):
 			test_register[0] = True
 		self.assertRaises(RegisterPermissionError, test_write)
 
+	def test_writing_to_writeonly_register(self):
+		test_register = Register(8, 'wo')
+		# ~~~~~~ Permission Checks ~~~~ #
+		def test_read(): b = test_register[0]
+		self.assertEqual(test_register.state[0], bin(False))
+		test_register[0] = True
+		self.assertEqual(test_register.state[0], bin(True), "Writing to Register(8, 'wo') failed")
+		self.assertRaises(RegisterPermissionError, test_read)
+
+	
+
+

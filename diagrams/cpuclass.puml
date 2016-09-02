@@ -1,0 +1,11 @@
+@startuml
+
+[CPU]
+frame "Subclass" #lightblue {
+  [SubCPU]
+  [CPU] --> [SubCPU]
+  [SubCPU] <-- REGISTERS: Array of fixed size arrays
+  
+}
+
+@enduml

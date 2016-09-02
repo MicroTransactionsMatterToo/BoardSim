@@ -1,0 +1,7 @@
+digraph main {
+  subgraph SUBCLASS {
+    INST [label="Instance" color="lightblue", shape="square"]
+    REG [label="Register" color="red" shape="box"]
+
+}
+}
