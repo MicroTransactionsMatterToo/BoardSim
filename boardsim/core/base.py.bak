@@ -21,9 +21,9 @@ import array
 
 class ATM328P:
     RGSTR = [] # List of 32 Register addresses
-    SFLASH = list(range(32)) # Byte Array or something
-    EEPROM = list(range(1000))
-    IO = list(range(23))
+    SFLASH = range(32) # Byte Array or something
+    EEPROM = range(1000)
+    IO = range(23)
     RTC = "RTC" # Placeholder for Real Time Counter
     FTC = "Flexible Counters" # No fucking clue what this is
     WDT = "Watchdog Timer" # Resets device if main loop halts for too long
